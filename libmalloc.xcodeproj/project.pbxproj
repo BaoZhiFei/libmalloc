@@ -292,6 +292,23 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		04D4CF9924DF8DF30038F142 /* _simple.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = _simple.h; sourceTree = "<group>"; };
+		04D4CF9C24DF8DF30038F142 /* lock_private.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = lock_private.h; sourceTree = "<group>"; };
+		04D4CF9D24DF8DF30038F142 /* tsd.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = tsd.h; sourceTree = "<group>"; };
+		04D4CF9E24DF8DF30038F142 /* event.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = event.h; sourceTree = "<group>"; };
+		04D4CFA024DF8DF30038F142 /* internal_shared.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = internal_shared.h; sourceTree = "<group>"; };
+		04D4CFA124DF8DF30038F142 /* crashlog.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = crashlog.h; sourceTree = "<group>"; };
+		04D4CFA224DF8DF30038F142 /* atomic.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = atomic.h; sourceTree = "<group>"; };
+		04D4CFA324DF8DF30038F142 /* base_private.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = base_private.h; sourceTree = "<group>"; };
+		04D4CFA424DF8DF30038F142 /* once_private.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = once_private.h; sourceTree = "<group>"; };
+		04D4CFA624DF8DF30038F142 /* spinlock_private.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = spinlock_private.h; sourceTree = "<group>"; };
+		04D4CFA724DF8DF30038F142 /* tsd_private.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = tsd_private.h; sourceTree = "<group>"; };
+		04D4CFAB24DF8DF30038F142 /* cpu_capabilities.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = cpu_capabilities.h; sourceTree = "<group>"; };
+		04D4CFAD24DF8DF30038F142 /* cpu_capabilities.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = cpu_capabilities.h; sourceTree = "<group>"; };
+		04D4CFAF24DF8DF30038F142 /* compat.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = compat.h; sourceTree = "<group>"; };
+		04D4CFB024DF8DF30038F142 /* string.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = string.h; sourceTree = "<group>"; };
+		04D4CFB224DF8DF40038F142 /* dyld_priv.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = dyld_priv.h; sourceTree = "<group>"; };
+		04D4CFB324DF8DF40038F142 /* thread_stack_pcs.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = thread_stack_pcs.h; sourceTree = "<group>"; };
 		08315121215ED9C700D97E04 /* malloc_implementation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = malloc_implementation.h; sourceTree = "<group>"; };
 		084F5E831D50204F006CD296 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		086D54292159699B00A0ACD1 /* libSystem.B.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libSystem.B.tbd; path = usr/lib/libSystem.B.tbd; sourceTree = SDKROOT; };
@@ -454,6 +471,94 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		04D4CF9A24DF8DF30038F142 /* i386 */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = i386;
+			sourceTree = "<group>";
+		};
+		04D4CF9B24DF8DF30038F142 /* os */ = {
+			isa = PBXGroup;
+			children = (
+				04D4CF9C24DF8DF30038F142 /* lock_private.h */,
+				04D4CF9D24DF8DF30038F142 /* tsd.h */,
+				04D4CF9E24DF8DF30038F142 /* event.h */,
+				04D4CF9F24DF8DF30038F142 /* internal */,
+				04D4CFA324DF8DF30038F142 /* base_private.h */,
+				04D4CFA424DF8DF30038F142 /* once_private.h */,
+			);
+			path = os;
+			sourceTree = "<group>";
+		};
+		04D4CF9F24DF8DF30038F142 /* internal */ = {
+			isa = PBXGroup;
+			children = (
+				04D4CFA024DF8DF30038F142 /* internal_shared.h */,
+				04D4CFA124DF8DF30038F142 /* crashlog.h */,
+				04D4CFA224DF8DF30038F142 /* atomic.h */,
+			);
+			path = internal;
+			sourceTree = "<group>";
+		};
+		04D4CFA524DF8DF30038F142 /* pthread */ = {
+			isa = PBXGroup;
+			children = (
+				04D4CFA624DF8DF30038F142 /* spinlock_private.h */,
+				04D4CFA724DF8DF30038F142 /* tsd_private.h */,
+			);
+			path = pthread;
+			sourceTree = "<group>";
+		};
+		04D4CFA824DF8DF30038F142 /* arm */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = arm;
+			sourceTree = "<group>";
+		};
+		04D4CFA924DF8DF30038F142 /* System */ = {
+			isa = PBXGroup;
+			children = (
+				04D4CFAA24DF8DF30038F142 /* i386 */,
+				04D4CFAC24DF8DF30038F142 /* machine */,
+			);
+			path = System;
+			sourceTree = "<group>";
+		};
+		04D4CFAA24DF8DF30038F142 /* i386 */ = {
+			isa = PBXGroup;
+			children = (
+				04D4CFAB24DF8DF30038F142 /* cpu_capabilities.h */,
+			);
+			path = i386;
+			sourceTree = "<group>";
+		};
+		04D4CFAC24DF8DF30038F142 /* machine */ = {
+			isa = PBXGroup;
+			children = (
+				04D4CFAD24DF8DF30038F142 /* cpu_capabilities.h */,
+			);
+			path = machine;
+			sourceTree = "<group>";
+		};
+		04D4CFAE24DF8DF30038F142 /* platform */ = {
+			isa = PBXGroup;
+			children = (
+				04D4CFAF24DF8DF30038F142 /* compat.h */,
+				04D4CFB024DF8DF30038F142 /* string.h */,
+			);
+			path = platform;
+			sourceTree = "<group>";
+		};
+		04D4CFB124DF8DF40038F142 /* mach-o */ = {
+			isa = PBXGroup;
+			children = (
+				04D4CFB224DF8DF40038F142 /* dyld_priv.h */,
+			);
+			path = "mach-o";
+			sourceTree = "<group>";
+		};
 		084F5E821D50204F006CD296 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -655,6 +760,15 @@
 		C9571C381C18AA0A00A67EE3 /* private */ = {
 			isa = PBXGroup;
 			children = (
+				04D4CF9924DF8DF30038F142 /* _simple.h */,
+				04D4CFA824DF8DF30038F142 /* arm */,
+				04D4CF9A24DF8DF30038F142 /* i386 */,
+				04D4CFB124DF8DF40038F142 /* mach-o */,
+				04D4CF9B24DF8DF30038F142 /* os */,
+				04D4CFAE24DF8DF30038F142 /* platform */,
+				04D4CFA524DF8DF30038F142 /* pthread */,
+				04D4CFA924DF8DF30038F142 /* System */,
+				04D4CFB324DF8DF40038F142 /* thread_stack_pcs.h */,
 				C9571C391C18AA1D00A67EE3 /* stack_logging.h */,
 				C0352EC61C3F3C3600DB5126 /* malloc_private.h */,
 				08315121215ED9C700D97E04 /* malloc_implementation.h */,
@@ -1223,6 +1337,15 @@
 			baseConfigurationReference = B629CF29202BA3C2007719B9 /* libmalloc_resolver.xcconfig */;
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"_FORTIFY_SOURCE=0",
+					NDEBUG,
+					"$(OSATOMIC_PREPROCESSOR_DEFINITIONS)",
+					"$(PLATFORM_PREPROCESSOR_DEFINITIONS)",
+					"OS_VARIANT_RESOLVED=1",
+					"OS_VARIANT_NOTRESOLVED=1",
+				);
+				ORDER_FILE = "";
 			};
 			name = Debug;
 		};
@@ -1231,6 +1354,14 @@
 			baseConfigurationReference = B629CF29202BA3C2007719B9 /* libmalloc_resolver.xcconfig */;
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"_FORTIFY_SOURCE=0",
+					NDEBUG,
+					"$(OSATOMIC_PREPROCESSOR_DEFINITIONS)",
+					"$(PLATFORM_PREPROCESSOR_DEFINITIONS)",
+					"OS_VARIANT_RESOLVED=1",
+					"OS_VARIANT_NOTRESOLVED=1",
+				);
 			};
 			name = Release;
 		};

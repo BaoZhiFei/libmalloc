@@ -54,7 +54,7 @@
 
 #if defined(__i386__) || defined(__x86_64__) || defined(__arm__) || defined(__arm64__)
 #   define __APPLE_API_PRIVATE
-#   include <machine/cpu_capabilities.h>
+#   include <System/machine/cpu_capabilities.h>
 #   if defined(__i386__) || defined(__x86_64__)
 #      define _COMM_PAGE_VERSION_REQD 9
 #   else

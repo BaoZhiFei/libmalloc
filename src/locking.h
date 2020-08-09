@@ -45,7 +45,8 @@ _malloc_lock_init(_malloc_lock_s *lock) {
 MALLOC_ALWAYS_INLINE
 static inline void
 _malloc_lock_lock(_malloc_lock_s *lock) {
-	return os_unfair_lock_lock_with_options(lock, OS_UNFAIR_LOCK_ADAPTIVE_SPIN |
+	// MARK: I did not find the definition of OS_UNFAIR_LOCK_ADAPTIVE_SPIN, in order to compile it, comment it first
+	return os_unfair_lock_lock_with_options(lock, /*OS_UNFAIR_LOCK_ADAPTIVE_SPIN |*/
 			OS_UNFAIR_LOCK_DATA_SYNCHRONIZATION);
 }
 

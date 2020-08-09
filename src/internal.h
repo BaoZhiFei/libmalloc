@@ -62,6 +62,7 @@
 #include <os/once_private.h>
 #include <os/overflow.h>
 #include <os/tsd.h>
+#include <os/event.h>
 #include <paths.h>
 #include <signal.h>
 #include <stdarg.h>
