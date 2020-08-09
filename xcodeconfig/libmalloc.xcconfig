@@ -1,6 +1,6 @@
 #include "<DEVELOPER_DIR>/Makefiles/CoreOS/Xcode/BSD.xcconfig"
 
-SDKROOT = macosx.internal
+SDKROOT = macosx
 SUPPORTED_PLATFORMS = macosx iphoneos iphonesimulator appletvos appletvsimulator watchos watchsimulator
 BUILD_VARIANTS = normal debug
 

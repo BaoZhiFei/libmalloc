@@ -40,7 +40,7 @@ DEBUG_INFORMATION_FORMAT = dwarf;
 
 SDKROOT = $(SDKROOT_$(USE_INTERNAL_SDK));
 SDKROOT_ = macosx;
-SDKROOT_YES = macosx.internal;
+SDKROOT_YES = macosx;
 
 WK_DEFAULT_LTO_MODE = $(WK_USER_LTO_MODE_none);
 
