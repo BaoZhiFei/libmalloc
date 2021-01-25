@@ -30,7 +30,7 @@
 
 #ifndef _MALLOC_BUILDING_CODES_
 #include <sys/kdebug.h>
-extern int kdebug_trace(uint32_t code, uint64_t arg1, uint64_t arg2, uint64_t arg3, uint64_t arg4);
+__attribute__((cold)) extern int kdebug_trace(uint32_t code, uint64_t arg1, uint64_t arg2, uint64_t arg3, uint64_t arg4);
 #define MALLOC_TRACE(code,arg1,arg2,arg3,arg4) \
 	{ if (malloc_tracing_enabled) { kdebug_trace(code, arg1, arg2, arg3, arg4); } }
 #define TRACE_CODE(name, subclass, code) \
