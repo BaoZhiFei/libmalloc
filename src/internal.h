@@ -56,14 +56,14 @@
 #include <mach/vm_page_size.h>
 #include <mach/vm_param.h>
 #include <mach/vm_statistics.h>
-#include <machine/cpu_capabilities.h>
+#include <System/machine/cpu_capabilities.h>
 #include <os/atomic_private.h>
-#include <os/crashlog_private.h>
+//#include <os/crashlog_private.h>
 #include <os/lock_private.h>
 #include <os/once_private.h>
 #include <os/overflow.h>
 #if !TARGET_OS_DRIVERKIT
-# include <os/feature_private.h>
+//# include <os/feature_private.h>
 #endif
 #include <os/tsd.h>
 #include <os/event.h>

@@ -2,14 +2,14 @@
  * Copyright (c) 2003-2013 Apple Inc. All rights reserved.
  *
  * @APPLE_LICENSE_HEADER_START@
- * 
+ *
  * This file contains Original Code and/or Modifications of Original Code
  * as defined in and that are subject to the Apple Public Source License
  * Version 2.0 (the 'License'). You may not use this file except in
  * compliance with the License. Please obtain a copy of the License at
  * http://www.opensource.apple.com/apsl/ and read it before using this
  * file.
- * 
+ *
  * The Original Code and all software distributed under the License are
  * distributed on an 'AS IS' basis, WITHOUT WARRANTY OF ANY KIND, EITHER
  * EXPRESS OR IMPLIED, AND APPLE HEREBY DISCLAIMS ALL SUCH WARRANTIES,
@@ -17,28 +17,28 @@
  * FITNESS FOR A PARTICULAR PURPOSE, QUIET ENJOYMENT OR NON-INFRINGEMENT.
  * Please see the License for the specific language governing rights and
  * limitations under the License.
- * 
+ *
  * @APPLE_LICENSE_HEADER_END@
  */
 /*
- * Copyright 1996 1995 by Open Software Foundation, Inc. 1997 1996 1995 1994 1993 1992 1991  
- *              All Rights Reserved 
- *  
- * Permission to use, copy, modify, and distribute this software and 
- * its documentation for any purpose and without fee is hereby granted, 
- * provided that the above copyright notice appears in all copies and 
- * that both the copyright notice and this permission notice appear in 
- * supporting documentation. 
- *  
- * OSF DISCLAIMS ALL WARRANTIES WITH REGARD TO THIS SOFTWARE 
- * INCLUDING ALL IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS 
- * FOR A PARTICULAR PURPOSE. 
- *  
- * IN NO EVENT SHALL OSF BE LIABLE FOR ANY SPECIAL, INDIRECT, OR 
- * CONSEQUENTIAL DAMAGES OR ANY DAMAGES WHATSOEVER RESULTING FROM 
- * LOSS OF USE, DATA OR PROFITS, WHETHER IN ACTION OF CONTRACT, 
- * NEGLIGENCE, OR OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION 
- * WITH THE USE OR PERFORMANCE OF THIS SOFTWARE. 
+ * Copyright 1996 1995 by Open Software Foundation, Inc. 1997 1996 1995 1994 1993 1992 1991
+ *              All Rights Reserved
+ *
+ * Permission to use, copy, modify, and distribute this software and
+ * its documentation for any purpose and without fee is hereby granted,
+ * provided that the above copyright notice appears in all copies and
+ * that both the copyright notice and this permission notice appear in
+ * supporting documentation.
+ *
+ * OSF DISCLAIMS ALL WARRANTIES WITH REGARD TO THIS SOFTWARE
+ * INCLUDING ALL IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS
+ * FOR A PARTICULAR PURPOSE.
+ *
+ * IN NO EVENT SHALL OSF BE LIABLE FOR ANY SPECIAL, INDIRECT, OR
+ * CONSEQUENTIAL DAMAGES OR ANY DAMAGES WHATSOEVER RESULTING FROM
+ * LOSS OF USE, DATA OR PROFITS, WHETHER IN ACTION OF CONTRACT,
+ * NEGLIGENCE, OR OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION
+ * WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
  */
 /*
  * MkLinux
@@ -56,38 +56,28 @@
 #include <os/tsd.h>
 #include <pthread/spinlock_private.h>
 
-#ifndef __TSD_MACH_THREAD_SELF
-#define __TSD_MACH_THREAD_SELF 3
-#endif
-
-#ifndef __TSD_THREAD_QOS_CLASS
-#define __TSD_THREAD_QOS_CLASS 4
-#endif
-
-#ifndef __TSD_RETURN_TO_KERNEL
-#define __TSD_RETURN_TO_KERNEL 5
-#endif
-
-#ifndef __TSD_PTR_MUNGE
-#define __TSD_PTR_MUNGE 7
-#endif
-
-#ifndef __TSD_MACH_SPECIAL_REPLY
-#define __TSD_MACH_SPECIAL_REPLY 8
-#endif
-
 /* Constant TSD slots for inline pthread_getspecific() usage. */
 
 /* Keys 0 - 9 are for Libsyscall/libplatform usage */
-#define _PTHREAD_TSD_SLOT_PTHREAD_SELF __TSD_THREAD_SELF
-#define _PTHREAD_TSD_SLOT_ERRNO __TSD_ERRNO
-#define _PTHREAD_TSD_SLOT_MIG_REPLY __TSD_MIG_REPLY
-#define _PTHREAD_TSD_SLOT_MACH_THREAD_SELF __TSD_MACH_THREAD_SELF
-#define _PTHREAD_TSD_SLOT_PTHREAD_QOS_CLASS	__TSD_THREAD_QOS_CLASS
-#define _PTHREAD_TSD_SLOT_RETURN_TO_KERNEL __TSD_RETURN_TO_KERNEL
-#define _PTHREAD_TSD_SLOT_PTR_MUNGE __TSD_PTR_MUNGE
-#define _PTHREAD_TSD_SLOT_MACH_SPECIAL_REPLY __TSD_MACH_SPECIAL_REPLY
-//#define _PTHREAD_TSD_SLOT_SEMAPHORE_CACHE __TSD_SEMAPHORE_CACHE
+#define _PTHREAD_TSD_SLOT_PTHREAD_SELF              __TSD_THREAD_SELF
+#define _PTHREAD_TSD_SLOT_ERRNO                     __TSD_ERRNO
+#define _PTHREAD_TSD_SLOT_MIG_REPLY                 __TSD_MIG_REPLY
+#define _PTHREAD_TSD_SLOT_MACH_THREAD_SELF          __TSD_MACH_THREAD_SELF
+#define _PTHREAD_TSD_SLOT_PTHREAD_QOS_CLASS         __TSD_THREAD_QOS_CLASS
+#define _PTHREAD_TSD_SLOT_RETURN_TO_KERNEL          __TSD_RETURN_TO_KERNEL
+#define _PTHREAD_TSD_SLOT_PTR_MUNGE                 __TSD_PTR_MUNGE
+#define _PTHREAD_TSD_SLOT_MACH_SPECIAL_REPLY        __TSD_MACH_SPECIAL_REPLY
+#define _PTHREAD_TSD_SLOT_SEMAPHORE_CACHE           __TSD_SEMAPHORE_CACHE
+
+#define _PTHREAD_TSD_SLOT_PTHREAD_SELF_TYPE         pthread_t
+#define _PTHREAD_TSD_SLOT_ERRNO_TYPE                int *
+#define _PTHREAD_TSD_SLOT_MIG_REPLY_TYPE            mach_port_t
+#define _PTHREAD_TSD_SLOT_MACH_THREAD_SELF_TYPE     mach_port_t
+#define _PTHREAD_TSD_SLOT_PTHREAD_QOS_CLASS_TYPE    pthread_priority_t
+#define _PTHREAD_TSD_SLOT_RETURN_TO_KERNEL_TYPE     uintptr_t
+#define _PTHREAD_TSD_SLOT_PTR_MUNGE_TYPE            uintptr_t
+#define _PTHREAD_TSD_SLOT_MACH_SPECIAL_REPLY_TYPE   mach_port_t
+#define _PTHREAD_TSD_SLOT_SEMAPHORE_CACHE_TYPE      semaphore_t
 
 /*
  * Windows 64-bit ABI bakes %gs relative accesses into its code in the same
@@ -225,6 +215,20 @@
 #define __PTK_FRAMEWORK_SWIFT_KEY8		108
 #define __PTK_FRAMEWORK_SWIFT_KEY9		109
 
+/* Keys 110-115 for libmalloc */
+#define __PTK_LIBMALLOC_KEY0		110
+#define __PTK_LIBMALLOC_KEY1		111
+#define __PTK_LIBMALLOC_KEY2		112
+#define __PTK_LIBMALLOC_KEY3		113
+#define __PTK_LIBMALLOC_KEY4		114
+
+/* Keys 115-120 for libdispatch workgroups */
+#define __PTK_LIBDISPATCH_WORKGROUP_KEY0		115
+#define __PTK_LIBDISPATCH_WORKGROUP_KEY1		116
+#define __PTK_LIBDISPATCH_WORKGROUP_KEY2		117
+#define __PTK_LIBDISPATCH_WORKGROUP_KEY3		118
+#define __PTK_LIBDISPATCH_WORKGROUP_KEY4		119
+
 /* Keys 190 - 194 are for the use of PerfUtils */
 #define __PTK_PERF_UTILS_KEY0		190
 #define __PTK_PERF_UTILS_KEY1		191
@@ -306,3 +310,4 @@ __END_DECLS
 
 #endif /* ! __ASSEMBLER__ */
 #endif /* __PTHREAD_TSD_H__ */
+

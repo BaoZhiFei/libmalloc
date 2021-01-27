@@ -318,6 +318,19 @@
 /* Begin PBXFileReference section */
 		0407BAAF24E7789000129E6E /* libmalloc_demo */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = libmalloc_demo; sourceTree = BUILT_PRODUCTS_DIR; };
 		0407BAB124E7789000129E6E /* main.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
+		04B0E11025C0F7F00062E8FA /* atomic_private.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = atomic_private.h; sourceTree = "<group>"; };
+		04B0E11D25C0F8100062E8FA /* atomic_private_impl.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = atomic_private_impl.h; sourceTree = "<group>"; };
+		04B0E12A25C0F82A0062E8FA /* atomic_private_arch.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = atomic_private_arch.h; sourceTree = "<group>"; };
+		04B0E13725C0F92E0062E8FA /* private.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = private.h; sourceTree = "<group>"; };
+		04B0E14525C0FA1C0062E8FA /* mach_private.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = mach_private.h; sourceTree = "<group>"; };
+		04B0E14625C0FA1C0062E8FA /* queue_private.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = queue_private.h; sourceTree = "<group>"; };
+		04B0E14725C0FA1C0062E8FA /* layout_private.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = layout_private.h; sourceTree = "<group>"; };
+		04B0E14825C0FA1C0062E8FA /* time_private.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = time_private.h; sourceTree = "<group>"; };
+		04B0E14925C0FA1C0062E8FA /* source_private.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = source_private.h; sourceTree = "<group>"; };
+		04B0E14A25C0FA1C0062E8FA /* data_private.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = data_private.h; sourceTree = "<group>"; };
+		04B0E14B25C0FA1C0062E8FA /* workloop_private.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = workloop_private.h; sourceTree = "<group>"; };
+		04B0E14C25C0FA1C0062E8FA /* benchmark.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = benchmark.h; sourceTree = "<group>"; };
+		04B0E14D25C0FA1C0062E8FA /* io_private.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = io_private.h; sourceTree = "<group>"; };
 		04D4CF9924DF8DF30038F142 /* _simple.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = _simple.h; sourceTree = "<group>"; };
 		04D4CF9C24DF8DF30038F142 /* lock_private.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = lock_private.h; sourceTree = "<group>"; };
 		04D4CF9D24DF8DF30038F142 /* tsd.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = tsd.h; sourceTree = "<group>"; };
@@ -518,6 +531,22 @@
 			path = libmalloc_demo;
 			sourceTree = "<group>";
 		};
+		04B0E14425C0FA1C0062E8FA /* dispatch */ = {
+			isa = PBXGroup;
+			children = (
+				04B0E14525C0FA1C0062E8FA /* mach_private.h */,
+				04B0E14625C0FA1C0062E8FA /* queue_private.h */,
+				04B0E14725C0FA1C0062E8FA /* layout_private.h */,
+				04B0E14825C0FA1C0062E8FA /* time_private.h */,
+				04B0E14925C0FA1C0062E8FA /* source_private.h */,
+				04B0E14A25C0FA1C0062E8FA /* data_private.h */,
+				04B0E14B25C0FA1C0062E8FA /* workloop_private.h */,
+				04B0E14C25C0FA1C0062E8FA /* benchmark.h */,
+				04B0E14D25C0FA1C0062E8FA /* io_private.h */,
+			);
+			path = dispatch;
+			sourceTree = "<group>";
+		};
 		04D4CF9A24DF8DF30038F142 /* i386 */ = {
 			isa = PBXGroup;
 			children = (
@@ -528,6 +557,9 @@
 		04D4CF9B24DF8DF30038F142 /* os */ = {
 			isa = PBXGroup;
 			children = (
+				04B0E12A25C0F82A0062E8FA /* atomic_private_arch.h */,
+				04B0E11D25C0F8100062E8FA /* atomic_private_impl.h */,
+				04B0E11025C0F7F00062E8FA /* atomic_private.h */,
 				04D4CF9C24DF8DF30038F142 /* lock_private.h */,
 				04D4CF9D24DF8DF30038F142 /* tsd.h */,
 				04D4CF9E24DF8DF30038F142 /* event.h */,
@@ -551,6 +583,7 @@
 		04D4CFA524DF8DF30038F142 /* pthread */ = {
 			isa = PBXGroup;
 			children = (
+				04B0E13725C0F92E0062E8FA /* private.h */,
 				04D4CFA624DF8DF30038F142 /* spinlock_private.h */,
 				04D4CFA724DF8DF30038F142 /* tsd_private.h */,
 			);
@@ -823,6 +856,7 @@
 		C9571C381C18AA0A00A67EE3 /* private */ = {
 			isa = PBXGroup;
 			children = (
+				04B0E14425C0FA1C0062E8FA /* dispatch */,
 				04D4CF9924DF8DF30038F142 /* _simple.h */,
 				04D4CFA824DF8DF30038F142 /* arm */,
 				04D4CF9A24DF8DF30038F142 /* i386 */,

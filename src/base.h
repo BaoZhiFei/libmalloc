@@ -41,16 +41,9 @@
 	} \
 })
 
-#define MALLOC_FATAL_ERROR(cause, message) ({ \
-		_os_set_crash_log_cause_and_message((cause), "FATAL ERROR - " message); \
-		__asm__ __volatile__ (""); \
-		__builtin_trap(); \
-})
+#define MALLOC_FATAL_ERROR(cause, message) {}
 
-#define MALLOC_REPORT_FATAL_ERROR(cause, message) ({ \
-		malloc_report(ASL_LEVEL_ERR, "*** FATAL ERROR - " message ".\n"); \
-		MALLOC_FATAL_ERROR((cause), message); \
-})
+#define MALLOC_REPORT_FATAL_ERROR(cause, message) {}
 
 #if defined(__i386__) || defined(__x86_64__) || defined(__arm__) || defined(__arm64__)
 #   define __APPLE_API_PRIVATE

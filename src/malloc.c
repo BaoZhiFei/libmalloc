@@ -197,7 +197,8 @@ __entropy_from_kernel(const char *str)
 static uint64_t
 __is_translated(void)
 {
-	return (*(uint64_t*)_COMM_PAGE_CPU_CAPABILITIES64) & kIsTranslated;
+	// MARK: can't find kIsTranslated
+	return (*(uint64_t*)_COMM_PAGE_CPU_CAPABILITIES64)/* & kIsTranslated*/;
 }
 #endif /* TARGET_OS_OSX */
 
@@ -2373,10 +2374,10 @@ DefaultMallocError(int x)
 	if (b) {
 		_simple_sprintf(b, "*** error %d", x);
 		malloc_report(MALLOC_REPORT_NOLOG, "%s\n", _simple_string(b));
-		_os_set_crash_log_message_dynamic(_simple_string(b));
+//		_os_set_crash_log_message_dynamic(_simple_string(b));
 	} else {
 		malloc_report(MALLOC_REPORT_NOLOG, "*** error %d\n", x);
-		_os_set_crash_log_message("*** DefaultMallocError called");
+//		_os_set_crash_log_message("*** DefaultMallocError called");
 	}
 	abort();
 #endif

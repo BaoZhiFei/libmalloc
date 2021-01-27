@@ -1355,7 +1355,7 @@ small_free_no_lock(rack_t *rack, magazine_t *small_mag_ptr, mag_index_t mag_inde
 			msize += previous_msize;
 			index -= previous_msize;
 		} else {
-			_os_set_crash_log_message("small free list metadata inconsistency (headers[previous] != previous size)");
+//			_os_set_crash_log_message("small free list metadata inconsistency (headers[previous] != previous size)");
 			__builtin_trap();
 		}
 	}

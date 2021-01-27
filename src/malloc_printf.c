@@ -179,7 +179,7 @@ malloc_vreport(uint32_t flags, unsigned sleep_time, const char *prefix_msg,
 	}
 
 	if (flags & MALLOC_REPORT_CRASH) {
-		_os_set_crash_log_message_dynamic(crash_msg);
+//		_os_set_crash_log_message_dynamic(crash_msg);
 		abort();
 	}
 }
