@@ -28,6 +28,7 @@
 #include <mach/mach_types.h>
 #include <sys/cdefs.h>
 #include <Availability.h>
+#include <os/availability.h>
 
 __BEGIN_DECLS
 /*********	Type definitions	************/
@@ -263,6 +264,11 @@ extern void malloc_zone_enumerate_discharged_pointers(malloc_zone_t *zone, void 
 extern void malloc_zone_enumerate_discharged_pointers(malloc_zone_t *zone, void *) __OSX_AVAILABLE_STARTING(__MAC_10_7, __IPHONE_4_3);
 #endif /* __BLOCKS__ */
 
+API_AVAILABLE(macos(10.12), ios(10.0), tvos(10.0), watchos(3.0))
+void * reallocarray(void * in_ptr, size_t nmemb, size_t size) __DARWIN_EXTSN(reallocarray) __result_use_check;
+
+API_AVAILABLE(macos(10.12), ios(10.0), tvos(10.0), watchos(3.0))
+void * reallocarrayf(void * in_ptr, size_t nmemb, size_t size) __DARWIN_EXTSN(reallocarrayf) __result_use_check;
 __END_DECLS
 
 #endif /* _MALLOC_MALLOC_H_ */

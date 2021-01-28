@@ -40,6 +40,7 @@
 #include <mach/vm_map.h>
 #include <mach-o/dyld.h>
 #include <os/tsd.h>
+#include <os/overflow.h>
 #include <sys/mman.h>
 #include <xlocale.h>
 #include <TargetConditionals.h>
@@ -1628,6 +1629,36 @@ int
 malloc_debug(int level) {
 	malloc_printf("*** OBSOLETE: malloc_debug()\n");
 	return 0;
+}
+
+void *
+reallocarray(void * in_ptr, size_t nmemb, size_t size) {
+    return NULL;
+}
+
+void *
+reallocarrayf(void * in_ptr, size_t nmemb, size_t size) {
+    return NULL;
+}
+
+boolean_t
+malloc_zone_claimed_address(malloc_zone_t *zone, void *ptr)
+{
+    return false;
+}
+
+uint64_t __mach_stack_logging_shared_memory_address = 0;
+
+boolean_t
+malloc_register_stack_logger(void)
+{
+    return false;
+}
+
+void *
+aligned_alloc(size_t alignment, size_t size)
+{
+    return NULL;
 }
 
 /* vim: set noet:ts=4:sw=4:cindent: */

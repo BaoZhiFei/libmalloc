@@ -53,16 +53,17 @@
 #include <libkern/OSAtomic.h>
 #include <mach/vm_statistics.h>
 #include <mach/mach_init.h>
+#include <mach/thread_switch.h>
 #include <os/tsd.h>
 #include <sys/types.h>
 #include <sys/mman.h>
 #include <sys/param.h>
 
 #if defined(__i386__) || defined(__x86_64__) || defined(__arm__) || defined(__arm64__)
-#define __APPLE_API_PRIVATE
+#define PRIVATE
 #include <machine/cpu_capabilities.h>
 #define _COMM_PAGE_VERSION_REQD 9
-#undef __APPLE_API_PRIVATE
+#undef PRIVATE
 #else
 #include <sys/sysctl.h>
 #endif
@@ -73,6 +74,7 @@
 #include <crt_externs.h>	/* for _NSGetMachExecuteHeader() */
 #include <mach/vm_param.h>
 #include <mach/mach_vm.h>
+#include <mach/vm_map.h>
 #include <sys/vmparam.h>
 #include <os/tsd.h>
 
@@ -1107,14 +1109,14 @@ allocate_pages(szone_t *szone, size_t size, unsigned char align, unsigned debug_
 			kr = mach_vm_deallocate(mach_task_self(), addr, leading);
 			if (kr) {
 				szone_error(szone, 0, "can't unmap excess guard region", NULL,
-						"*** mach_vm_deallocate(addr=%p, size=%lu) failed (code=%d)", addr, leading, kr);
+						"*** mach_vm_deallocate(addr=%p, size=%lu) failed (code=%d)", (void *)addr, leading, kr);
 				return NULL;
 			}
 
 			kr = mach_vm_deallocate(mach_task_self(), addr + allocation_size - trailing, trailing);
 			if (kr) {
 				szone_error(szone, 0, "can't unmap excess trailing guard region", NULL,
-						"*** mach_vm_deallocate(addr=%p, size=%lu) failed (code=%d)", addr + allocation_size - trailing, trailing, kr);
+						"*** mach_vm_deallocate(addr=%p, size=%lu) failed (code=%d)", (void *)(addr + allocation_size - trailing), trailing, kr);
 				return NULL;
 			}
 

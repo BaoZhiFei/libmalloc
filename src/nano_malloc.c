@@ -49,12 +49,12 @@
 #include <os/tsd.h>
 
 #if defined(__x86_64__)
-#define __APPLE_API_PRIVATE
+#define PRIVATE
 #include <machine/cpu_capabilities.h>
 #define _COMM_PAGE_VERSION_REQD 9
-#undef __APPLE_API_PRIVATE
+#undef PRIVATE
 #else
-Unknown Architecture
+#error Unknown Architecture
 #endif
 
 #include "scalable_malloc.h"
